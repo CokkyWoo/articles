@@ -19,19 +19,20 @@ sql_wechat = '''CREATE TABLE `wechat` (
 sql_articles = '''CREATE TABLE `article` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `wechat_id` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
+            `wechat_name` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
             `send_id` int(11) NOT NULL DEFAULT '0' ,
             `msg_type` int(11) NOT NULL DEFAULT '49' ,
-            `type` int(11) NOT NULL DEFAULT '0' ,
-            `fileid` int(11) NOT NULL DEFAULT '0' ,
+            `artcile_type` int(11) NOT NULL DEFAULT '0' ,
+            `field_id` int(11) NOT NULL DEFAULT '0' ,
             `main` int(11) NOT NULL DEFAULT '0' ,
-            `time` int(11) NOT NULL DEFAULT '0' ,
+            `released_time` int(11) NOT NULL DEFAULT '0' ,
             `title` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
             `author` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
             `abstract` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
             `url` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
             `cover` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
-            `content` varchar(8000) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
-            `source` varchar(8000) CHARACTER SET utf8 NOT NULL DEFAULT '' ,
+            `content` LONGTEXT CHARACTER SET utf8 NULL ,
+            `html` LONGTEXT CHARACTER SET utf8 NULL ,
             PRIMARY KEY (`id`))'''
 
 mysql_client.query(sql_wechat)
